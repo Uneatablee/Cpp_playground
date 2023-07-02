@@ -1,0 +1,4 @@
+project(bus_stop_functions)
+
+add_library(bus_stop_functions src/bus_stop_functions.cpp)
+

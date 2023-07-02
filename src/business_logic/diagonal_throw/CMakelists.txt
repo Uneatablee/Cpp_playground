@@ -1,0 +1,3 @@
+project(diagonal_throw_functions)
+
+add_library(diagonal_throw_functions src/diagonal_throw_functions.cpp)

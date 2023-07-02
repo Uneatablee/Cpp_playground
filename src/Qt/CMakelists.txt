@@ -1,0 +1,3 @@
+project(playground_Qt)
+
+add_executable(playground_Qt main_Qt.cpp)

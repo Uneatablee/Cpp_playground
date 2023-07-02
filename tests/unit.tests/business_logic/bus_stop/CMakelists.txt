@@ -1,0 +1,10 @@
+project(bus_stop_functions_business_logic_unit_test)
+
+add_subdirectory(../../../../lib/Catch2 build)
+
+add_executable(bus_stop_functions_business_logic_unit_test main_bus_stop.cpp)
+
+target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
+
+target_link_libraries(bus_stop_functions_business_logic_unit_test PUBLIC bus_stop_functions)
+target_include_directories(bus_stop_functions_business_logic_unit_test PUBLIC ../../../../src/business_logic/bus_stop/include)
