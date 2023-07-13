@@ -1,3 +1,4 @@
 project(diagonal_throw_functions)
 
 add_library(diagonal_throw_functions src/diagonal_throw_functions.cpp)
+target_include_directories(diagonal_throw_functions INTERFACE ./include)
