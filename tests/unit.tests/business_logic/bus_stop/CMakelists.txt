@@ -13,4 +13,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
+
+
 target_link_libraries(bus_stop_functions_business_logic_unit_test PUBLIC bus_stop_functions)
