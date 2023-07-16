@@ -5,7 +5,7 @@
 
 int main()
 {
-    bus_stop::bus_draw(4,5);
+    cpp_playground::pg_business_logic::bus_stop::bus_draw(4,5);
     std::cout << std::endl << "And the second one: " << std::endl;
     diagonal_throw::throw_draw();
 }
