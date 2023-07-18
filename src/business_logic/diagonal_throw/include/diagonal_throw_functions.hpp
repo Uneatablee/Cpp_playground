@@ -1,8 +1,15 @@
 #include <iostream>
 
-namespace diagonal_throw
+
+namespace cpp_playground
 {
+    namespace pg_business_logic
+    {
+        namespace diagonal_throw
+        {
 
-    void throw_draw();
+            double throw_draw(int a, int b);
 
+        }
+    }
 }

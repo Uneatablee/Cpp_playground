@@ -1,7 +1,9 @@
 #include <iostream>
 #include "diagonal_throw_functions.hpp"
+#include <catch2/catch_test_macros.hpp>
 
-int main()
+
+TEST_CASE( "Bus_stop library working test" )
 {
-    std::cout << "yo";
+    REQUIRE(cpp_playground::pg_business_logic::diagonal_throw::throw_draw(3,5) == 10.0);
 }

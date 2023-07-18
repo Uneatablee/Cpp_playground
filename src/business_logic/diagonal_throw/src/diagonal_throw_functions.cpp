@@ -1,11 +1,19 @@
 #include "../include/diagonal_throw_functions.hpp"
 
-namespace diagonal_throw
+namespace cpp_playground
 {
-
-    void throw_draw()
+    namespace pg_business_logic
     {
-        std::cout <<"Drawing throw" <<std::endl;
-    }
 
+        namespace diagonal_throw
+        {
+
+            double throw_draw(int a, int b)
+            {
+                std::cout <<"Drawing throw" <<std::endl;
+                return a*b/2;
+            }
+
+        }
+    }
 }

@@ -2,5 +2,7 @@ project(diagonal_throw_business_logic_unit_tests)
 
 add_executable(diagonal_throw_business_logic_unit_tests main_diagonal_throw.cpp)
 
+target_link_libraries(diagonal_throw_business_logic_unit_tests PRIVATE Catch2::Catch2WithMain)
+
 target_link_libraries(diagonal_throw_business_logic_unit_tests PUBLIC diagonal_throw_functions)
 target_include_directories(diagonal_throw_business_logic_unit_tests PUBLIC ../../../../src/business_logic/diagonal_throw/include)
