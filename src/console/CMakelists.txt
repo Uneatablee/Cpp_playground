@@ -2,8 +2,6 @@ project(playground_console)
 
 add_executable(playground_console main_console.cpp)
 
-target_compile_options(playground_console PRIVATE -Wall -Wextra)
-
 target_link_libraries(playground_console PRIVATE bus_stop_functions)
 target_link_libraries(playground_console PRIVATE diagonal_throw_functions)
 
