@@ -6,5 +6,5 @@
 
 TEST_CASE( "Bus_stop library working test" )
 {
-    REQUIRE(bus_stop::bus_draw(10,2) == 5);
+    REQUIRE(cpp_playground::pg_business_logic::bus_stop::bus_draw(10,2) == 5);
 }

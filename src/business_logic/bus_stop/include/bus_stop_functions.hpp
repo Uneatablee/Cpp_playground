@@ -1,7 +1,16 @@
 #include <iostream>
 #include <string>
 
-namespace bus_stop
+
+namespace cpp_playground
 {
-    double bus_draw(int a,int b);
+    namespace pg_business_logic
+    {
+
+        namespace bus_stop
+        {
+            double bus_draw(int a,int b);
+        }
+
+    }
 }

@@ -2,16 +2,6 @@ project(bus_stop_functions_business_logic_unit_test)
 
 add_executable(bus_stop_functions_business_logic_unit_test main_bus_stop.cpp)
 
-Include(FetchContent)
-
-FetchContent_Declare(
-  Catch2
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG        v3.0.1
-)
-
-FetchContent_MakeAvailable(Catch2)
-
 target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
 
 
