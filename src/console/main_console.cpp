@@ -1,13 +1,11 @@
 #include <iostream>
-#include "bus_stop_functions.hpp"
 #include "diagonal_throw_functions.hpp"
+#include "Tbus.hpp"
 
 
 int main()
 {
-    cpp_playground::pg_business_logic::bus_stop::bus_draw(4,5);
-    std::cout << std::endl << "And the second one: " << std::endl;
-    cpp_playground::pg_business_logic::diagonal_throw::throw_draw(4,5);
+    cpp_playground::pg_business_logic::bus_stop::Tbus Bus_1(3,"Bus_1");
+    Bus_1.IdrawVehicle();
 
-    int b;
 }
