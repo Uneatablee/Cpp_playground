@@ -2,8 +2,8 @@
 
 #include "IVehicle.hpp"
 
-    namespace cpp_playground::pg_business_logic::bus_stop
-    {
+namespace cpp_playground::pg_business_logic::bus_stop
+{
 
     class Vehicle_extended : public IVehicle
     {
