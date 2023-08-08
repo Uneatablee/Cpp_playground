@@ -14,7 +14,14 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     }
 
+    int Tstop::counterBussesStop()
+    {
+        return this->bus_list.size();
+    }
 
-
+    void Tstop::addVehicle(IVehicle* vehicle)
+    {
+        this->bus_list.push_back(vehicle);
+    }
 
 }

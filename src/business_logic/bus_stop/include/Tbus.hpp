@@ -3,7 +3,7 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    class Tbus : public Vehicle_extended
+    class Tbus : virtual public Vehicle_extended
     {
     public:
 

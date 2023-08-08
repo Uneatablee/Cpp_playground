@@ -5,7 +5,7 @@
 namespace cpp_playground::pg_business_logic::bus_stop
 {
 
-    class Vehicle_extended : public IVehicle
+    class Vehicle_extended : virtual public IVehicle
     {
     protected:
 
