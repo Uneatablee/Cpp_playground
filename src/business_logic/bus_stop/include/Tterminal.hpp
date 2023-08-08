@@ -2,12 +2,12 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    class Tstop : public Bus_stop_extended
+    class Tterminal : public Bus_stop_extended
     {
     public:
 
-        Tstop(std::string stop_name) : Bus_stop_extended(stop_name){}
-        ~Tstop() override;
+        Tterminal(std::string stop_name) : Bus_stop_extended(stop_name){}
+        ~Tterminal() override;
 
     private:
 
@@ -15,5 +15,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void refreshStop() override;
 
     };
+
 
 }

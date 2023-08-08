@@ -1,30 +1,37 @@
 #include <iostream>
 #include <catch2/catch_test_macros.hpp>
 #include "Tbus.hpp"
+#include "Tcar.hpp"
+#include <memory>
 
 using namespace cpp_playground::pg_business_logic::bus_stop;
 
-TEST_CASE( "Bus_can_drive" )
+TEST_CASE( "Bus can drive" )
 {
     //Arrange
-    Tbus Bus_1(3,"bus_1");
-    IVehicle* pointer_1 = &Bus_1;
+    std::unique_ptr<IVehicle> pointer_1 = std::make_unique<Tbus>(3,"bus_1");
 
 
     //Act
-    pointer_1 -> moveVehicle(0);
+    int position_1 = (pointer_1 -> position_outputVehicle());
+
+    pointer_1 -> moveVehicle(IVehicle::Movement::Forward);
+    int position_2 = (pointer_1 -> position_outputVehicle());
+
+    pointer_1 -> moveVehicle(IVehicle::Movement::Backward);
+    int position_3 = (pointer_1 -> position_outputVehicle());
+
 
     //Assert
+    REQUIRE(position_1 != position_2);
+    REQUIRE(position_3 == position_1);
 }
 
-TEST_CASE( "When_bus_move_forward_it_should_change_position" )
+TEST_CASE( )
 {
     //Arrange
-    Tbus Bus_1(3,"bus_1");
-     IVehicle* pointer_1 = &Bus_1;
 
     //Act
-    pointer_1 -> moveVehicle(1);
 
     //Assert
 }

@@ -3,15 +3,13 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    class Tbus : public Vehicle_extended
+    class Tcar : public Vehicle_extended
     {
     public:
 
-        Tbus(int a, std::string n) : Vehicle_extended(a,n)
-        {
-
-        }
-        ~Tbus() override;
+        Tcar(int a, std::string n) : Vehicle_extended(a,n)
+        {}
+        ~Tcar() override;
 
     private:
         void moveVehicle(IVehicle::Movement direction) override;

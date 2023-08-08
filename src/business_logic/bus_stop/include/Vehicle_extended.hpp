@@ -9,11 +9,15 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     protected:
 
-        Vehicle_extended(int l,std::string n) : length(l), name(n) {}
+        Vehicle_extended(int l,std::string n,int c = 0) : length(l), name(n), current_position(c)
+        {
+
+        }
+
         int length;
         std::string name;
         int current_position;     //number of current bus_stop
-        int direction;
+        int direction_of_moving;
 
     };
 }

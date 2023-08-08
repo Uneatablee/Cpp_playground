@@ -1,8 +1,8 @@
-#include "../include/Tbus.hpp"
+#include "../include/Tcar.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    void Tbus::moveVehicle(Vehicle_extended::Movement direction)
+    void Tcar::moveVehicle(Vehicle_extended::Movement direction)
     {
         switch(direction)
         {
@@ -17,23 +17,23 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     }
 
-    void Tbus::drawVehicle()
+    void Tcar::drawVehicle()
     {
         std::cout << std::endl <<  "Drawing Vehicle..." << std::endl;
     }
 
-    Tbus::~Tbus()
+    Tcar::~Tcar()
     {
-        std::cout << std::endl << "Destroying Bus..." << std::endl;
+        std::cout << std::endl << "Destroying Car..." << std::endl;
     }
 
-    std::string Tbus::name_checkVehicle()
+    std::string Tcar::name_checkVehicle()
     {
         std::cout << std::endl << name << std::endl;
         return name;
     }
 
-    int Tbus::position_outputVehicle()
+    int Tcar::position_outputVehicle()
     {
         return current_position;
     }
