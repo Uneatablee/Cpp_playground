@@ -1,18 +1,17 @@
 #pragma once
-#include "Vehicle_extended.hpp"
+#include "Vehicle_base.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    class Tcar : virtual public Vehicle_extended
+    class Tcar : virtual public Vehicle_base
     {
     public:
 
-        Tcar(int a, std::string n) : Vehicle_extended(a,n)
+        Tcar(int a, std::string n) : Vehicle_base(a,n)
         {}
-        ~Tcar() override;
+        ~Tcar() = default;
 
     private:
-        void moveVehicle(IVehicle::Movement direction) override;
         void drawVehicle() override;
         std::string name_checkVehicle() override;
         int position_outputVehicle() override;

@@ -9,7 +9,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     private:
 
-        std::vector<std::unique_ptr<IBus_stop>> stops_list;
+        std::vector<std::unique_ptr<Ibus_stop>> stops_list;
 
     public:
         Route()
@@ -19,10 +19,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
             stops_list.push_back(std::make_unique<Tstop>("Bus stop - 2"));
             stops_list.push_back(std::make_unique<Tterminal>("Bus terminal - 3"));
         }
-        ~Route()
-        {
-
-        }
 
         int stop_list_count(){ return stops_list.size(); }
 
@@ -31,7 +27,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
             return stops_list[0]->counterBussesStop();
         }
 
-        void operator+=(IVehicle* vehicle_pointer)
+        void operator+=(Ivehicle* vehicle_pointer)
         {
             stops_list[0]->addVehicle(vehicle_pointer);
         }

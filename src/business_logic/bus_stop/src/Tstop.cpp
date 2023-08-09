@@ -2,8 +2,6 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    Tstop::~Tstop(){}
-
     void Tstop::drawStop()
     {
 
@@ -19,7 +17,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return this->bus_list.size();
     }
 
-    void Tstop::addVehicle(IVehicle* vehicle)
+    void Tstop::addVehicle(Ivehicle* vehicle)
     {
         this->bus_list.push_back(vehicle);
     }

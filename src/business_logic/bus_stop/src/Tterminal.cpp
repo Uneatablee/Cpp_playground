@@ -2,8 +2,6 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    Tterminal::~Tterminal(){}
-
     void Tterminal::drawStop()
     {
 
@@ -19,7 +17,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return this->bus_list.size();
     }
 
-    void Tterminal::addVehicle(IVehicle* vehicle)
+    void Tterminal::addVehicle(Ivehicle* vehicle)
     {
         this->bus_list.push_back(vehicle);
     }

@@ -1,22 +1,22 @@
-#include "Bus_stop_extended.hpp"
+#include "Bus_stop_base.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    class Tstop : virtual public Bus_stop_extended
+    class Tstop : virtual public Bus_stop_base
     {
     public:
 
-        Tstop(std::string stop_name) : Bus_stop_extended(stop_name)
+        Tstop(std::string stop_name) : Bus_stop_base(stop_name)
         {std::cout << "Creating stop" << std::endl;}
 
-        ~Tstop() override;
+        ~Tstop() = default;
 
     private:
 
         void drawStop() override;
         void refreshStop() override;
         int counterBussesStop() override;
-        void addVehicle(IVehicle*) override;
+        void addVehicle(Ivehicle*) override;
     };
 
 }
