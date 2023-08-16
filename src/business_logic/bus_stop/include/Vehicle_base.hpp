@@ -22,18 +22,18 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void moveVehicle(Ivehicle::Movement direction) override
         {
 
-        switch(direction)
-        {
-            case Vehicle_base::Movement::Forward:
-            current_position += 1;
-            break;
+            switch(direction)
+            {
+                case Vehicle_base::Movement::Forward:
+                current_position += 1;
+                break;
 
-            case Vehicle_base::Movement::Backward:
-            current_position -= 1;
-            break;
+                case Vehicle_base::Movement::Backward:
+                current_position -= 1;
+                break;
+            }
         }
 
-        }
         int length;
         std::string name;
         int current_position;     //number of current bus_stop

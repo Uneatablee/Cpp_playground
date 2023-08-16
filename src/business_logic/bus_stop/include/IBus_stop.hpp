@@ -10,6 +10,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     public:
 
+        Ibus_stop() = default;
         virtual ~Ibus_stop() = default;
 
         Ibus_stop(Ibus_stop&&) = default;
