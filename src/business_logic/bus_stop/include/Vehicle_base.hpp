@@ -19,25 +19,14 @@ namespace cpp_playground::pg_business_logic::bus_stop
         Vehicle_base(Vehicle_base&& object) = default;
         Vehicle_base& operator=(Vehicle_base&& object) = default;
 
-        void moveVehicle(Ivehicle::Movement direction) override
-        {
-
-            switch(direction)
-            {
-                case Vehicle_base::Movement::Forward:
-                current_position += 1;
-                break;
-
-                case Vehicle_base::Movement::Backward:
-                current_position -= 1;
-                break;
-            }
-        }
+        void moveVehicle(Ivehicle::Movement) override;
+        void assignRoute(Route*) override;
 
         int length;
         std::string name;
         int current_position;     //number of current bus_stop
         int direction_of_moving;
+        Route* current_route;
 
     };
 }

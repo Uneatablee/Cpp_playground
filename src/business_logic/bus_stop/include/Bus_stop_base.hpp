@@ -4,6 +4,8 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
+    class Ivehicle;
+
     class Bus_stop_base : virtual public Ibus_stop
     {
     protected:

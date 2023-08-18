@@ -3,6 +3,7 @@
 #include "Tstop.hpp"
 #include "Tterminal.hpp"
 
+
 namespace cpp_playground::pg_business_logic::bus_stop
 {
     class Route final
@@ -27,9 +28,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
             return stops_list[0]->counterBussesStop();
         }
 
-        void operator+=(Ivehicle* vehicle_pointer)
+        void vehicleCheckout(Ivehicle* vehicle)
         {
-            stops_list[0]->addVehicle(vehicle_pointer);
+            stops_list[0]->addVehicle(vehicle);
         }
 
     };

@@ -1,3 +1,4 @@
+#pragma once
 #include "Bus_stop_base.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop

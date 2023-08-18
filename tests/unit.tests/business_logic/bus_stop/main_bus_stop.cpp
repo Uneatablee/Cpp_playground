@@ -1,6 +1,5 @@
 #include <iostream>
 #include <catch2/catch_test_macros.hpp>
-#include "Route.hpp"
 #include "Tbus.hpp"
 #include "Tcar.hpp"
 #include <memory>
@@ -40,12 +39,12 @@ TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
 {
     // Arrange
     Route route_1;
-    Tbus bus_1(3,"bus_1");
-    Tcar car_1(2,"car_1");
 
-    route_1 += &bus_1;
-    route_1 += &car_1;
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3,"bus_1");
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2,"car_1");
 
+    bus->assignRoute(&route_1);
+    car->assignRoute(&route_1);
 
     // Act
     int bus_count = route_1.start_terminal_bus_count();

@@ -2,6 +2,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Route.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
@@ -23,5 +24,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
         virtual void drawVehicle() = 0;
         virtual std::string name_checkVehicle() = 0;
         virtual int position_outputVehicle() = 0;
+        virtual void assignRoute(Route*) = 0;
     };
 }

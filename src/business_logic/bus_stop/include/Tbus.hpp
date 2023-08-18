@@ -17,6 +17,5 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void drawVehicle() override;
         std::string name_checkVehicle() override;
         int position_outputVehicle() override;
-
     };
 }

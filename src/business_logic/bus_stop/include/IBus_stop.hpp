@@ -2,10 +2,11 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "Ivehicle.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
+    class Ivehicle;
+
     class Ibus_stop
     {
     public:
