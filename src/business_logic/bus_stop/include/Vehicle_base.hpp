@@ -13,20 +13,20 @@ namespace cpp_playground::pg_business_logic::bus_stop
         {}
         ~Vehicle_base() = default;
 
-        Vehicle_base(const Vehicle_base& object) = delete;
-        Vehicle_base& operator=(const Vehicle_base& object) = delete;
+        Vehicle_base(const Vehicle_base& object) = default;
+        Vehicle_base& operator=(const Vehicle_base& object) = default;
 
         Vehicle_base(Vehicle_base&& object) = default;
         Vehicle_base& operator=(Vehicle_base&& object) = default;
 
         void moveVehicle(Ivehicle::Movement) override;
-        void assignRoute(Route*) override;
+        void assignRoute(std::shared_ptr<Route>) override;
 
         int length;
         std::string name;
         int current_position;     //number of current bus_stop
         int direction_of_moving;
-        Route* current_route;
+        std::shared_ptr<Route> current_route;
 
     };
 }

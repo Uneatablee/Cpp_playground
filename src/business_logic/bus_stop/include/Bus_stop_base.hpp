@@ -13,8 +13,8 @@ namespace cpp_playground::pg_business_logic::bus_stop
         Bus_stop_base(std::string nam) : bus_stop_name(nam){}
         ~Bus_stop_base() = default;
 
-        Bus_stop_base(const Bus_stop_base& object) = delete;
-        Bus_stop_base& operator=(const Bus_stop_base& object) = delete;
+        Bus_stop_base(const Bus_stop_base& object) = default;
+        Bus_stop_base& operator=(const Bus_stop_base& object) = default;
 
         Bus_stop_base(Bus_stop_base&& object) = default;
         Bus_stop_base& operator=(Bus_stop_base&& object) = default;

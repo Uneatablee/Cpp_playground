@@ -2,7 +2,7 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    void Vehicle_base::assignRoute(Route* route)
+    void Vehicle_base::assignRoute(std::shared_ptr<Route> route)
     {
         this -> current_route = route;
         current_route -> vehicleCheckout(this);

@@ -38,17 +38,26 @@ TEST_CASE("Bus_stops base count should be 4")
 TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
 {
     // Arrange
-    Route route_1;
+    std::shared_ptr<Route> route_1 = std::make_shared<Route>();
 
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3,"bus_1");
-    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2,"car_1");
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1");
 
-    bus->assignRoute(&route_1);
-    car->assignRoute(&route_1);
+    bus->assignRoute(route_1);
+    car->assignRoute(route_1);
 
     // Act
-    int bus_count = route_1.start_terminal_bus_count();
+    int bus_count = route_1 -> start_terminal_bus_count();
 
     // Assert
     REQUIRE(bus_count == 2);
+}
+
+TEST_CASE("When bus moves beyond terminal it changes direction and goes back toward other terminal")
+{
+    // Arrange
+
+    // Act
+
+    // Assert
 }
