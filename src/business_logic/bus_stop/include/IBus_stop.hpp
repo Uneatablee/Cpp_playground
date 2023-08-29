@@ -23,6 +23,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         virtual void refreshStop() = 0;
         virtual int counterBussesStop() = 0;
         virtual void addVehicle(Ivehicle *) = 0;
+        virtual std::string getName() = 0;
     };
 
 }

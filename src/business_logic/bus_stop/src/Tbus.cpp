@@ -13,8 +13,4 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return name;
     }
 
-    int Tbus::position_outputVehicle()
-    {
-        return current_position;
-    }
 }

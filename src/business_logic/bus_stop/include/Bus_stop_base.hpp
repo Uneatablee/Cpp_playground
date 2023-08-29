@@ -25,6 +25,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
         int coordinate_x;
         int coordinate_y;
 
+        std::string getName() override;
+
+
     };
 
 

@@ -6,6 +6,8 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
         this -> current_route = route;
         current_route -> vehicleCheckout(this);
+
+        current_position = current_route -> stops_list[0];
     }
 
     void Vehicle_base::moveVehicle(Ivehicle::Movement direction)
@@ -13,13 +15,19 @@ namespace cpp_playground::pg_business_logic::bus_stop
         switch(direction)
         {
             case Vehicle_base::Movement::Forward:
-            current_position += 1;
+
+
             break;
 
             case Vehicle_base::Movement::Backward:
-            current_position -= 1;
+
             break;
         }
+    }
+
+    std::string Vehicle_base::showStop()
+    {
+        return current_position -> getName();
     }
 
 }

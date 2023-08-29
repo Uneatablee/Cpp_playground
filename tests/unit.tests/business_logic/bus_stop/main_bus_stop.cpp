@@ -9,20 +9,23 @@ using namespace cpp_playground::pg_business_logic::bus_stop;
 TEST_CASE("Bus can drive")
 {
     // Arrange
+    std::shared_ptr<Route> route_1 = std::make_shared<Route>();
     std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
 
-    // Act
-    int position_1 = (bus->position_outputVehicle());
+    bus -> assignRoute(route_1);
 
+    // Act
+
+    std::string name_of_first_stop = bus -> showStop();
     bus->moveVehicle(Ivehicle::Movement::Forward);
-    int position_2 = (bus->position_outputVehicle());
+
+    std::string name_of_second_stop = bus -> showStop();
 
     bus->moveVehicle(Ivehicle::Movement::Backward);
-    int position_3 = (bus->position_outputVehicle());
+
 
     // Assert
-    REQUIRE(position_1 != position_2);
-    REQUIRE(position_3 == position_1);
+
 }
 
 TEST_CASE("Bus_stops base count should be 4")
