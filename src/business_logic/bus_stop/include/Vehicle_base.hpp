@@ -25,8 +25,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
         int length;
         std::string name;
-        std::shared_ptr<Ibus_stop> current_position;
-        std::shared_ptr<Route> current_route;
+        std::shared_ptr<Ibus_stop> current_position = nullptr;
+        std::shared_ptr<Route> current_route = nullptr;
+        Phrase current_phrase = Ivehicle::Phrase::Normal;
 
     };
 }

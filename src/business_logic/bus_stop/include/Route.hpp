@@ -33,6 +33,11 @@ namespace cpp_playground::pg_business_logic::bus_stop
             stops_list[0]->addVehicle(vehicle);
         }
 
+        std::vector<std::shared_ptr<Ibus_stop>>::iterator begin(){return stops_list.begin();}
+        std::vector<std::shared_ptr<Ibus_stop>>::iterator end(){return stops_list.end();}
+        size_t routeSize(){ return stops_list.size();}
+
+
     };
 
 }

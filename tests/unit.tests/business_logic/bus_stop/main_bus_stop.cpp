@@ -17,14 +17,18 @@ TEST_CASE("Bus can drive")
     // Act
 
     std::string name_of_first_stop = bus -> showStop();
-    bus->moveVehicle(Ivehicle::Movement::Forward);
 
+    bus->moveVehicle(Ivehicle::Movement::Forward);
     std::string name_of_second_stop = bus -> showStop();
 
     bus->moveVehicle(Ivehicle::Movement::Backward);
+    std::string name_of_third_stop = bus -> showStop();
 
 
     // Assert
+
+    REQUIRE(name_of_first_stop != name_of_second_stop);
+    REQUIRE(name_of_first_stop == name_of_third_stop);
 
 }
 
@@ -59,8 +63,31 @@ TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
 TEST_CASE("When bus moves beyond terminal it changes direction and goes back toward other terminal")
 {
     // Arrange
+    std::shared_ptr<Route> route_1 = std::make_shared<Route>();
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
+    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3, "bus_2");
 
     // Act
+    bus -> assignRoute(route_1);
+    bus_1 -> assignRoute(route_1);
+
+    for(int i=0; i<3; i++) bus -> moveVehicle(Ivehicle::Movement::Forward);
+    std::string stop_name_1 = bus -> showStop();
+
+    bus -> moveVehicle(Ivehicle::Movement::Forward);
+    bus -> moveVehicle(Ivehicle::Movement::Forward);
+    std::string stop_name_2 = bus -> showStop();
+
+    bus -> moveVehicle(Ivehicle::Movement::Forward);
+    bus -> moveVehicle(Ivehicle::Movement::Forward);
+    std::string stop_name_3 = bus -> showStop();
+
+    bus_1 -> moveVehicle(Ivehicle::Movement::Forward);
+    std::string stop_name_4 = bus_1 -> showStop();
+
 
     // Assert
+
+    REQUIRE(stop_name_1 == stop_name_2);
+    REQUIRE(stop_name_3 == stop_name_4);
 }

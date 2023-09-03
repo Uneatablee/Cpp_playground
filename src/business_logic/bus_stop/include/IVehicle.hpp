@@ -10,6 +10,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     public:
         enum class Movement{Forward, Backward};
+        enum class Phrase{Normal, Reversed};
 
         Ivehicle() = default;
         virtual ~Ivehicle() = default;
