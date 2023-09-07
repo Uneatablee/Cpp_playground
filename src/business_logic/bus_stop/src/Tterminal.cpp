@@ -2,11 +2,7 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    void Tterminal::drawStop()
-    {
-    }
-
-    void Tterminal::refreshStop()
+    void Tterminal::draw()
     {
     }
 

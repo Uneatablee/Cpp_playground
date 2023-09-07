@@ -21,9 +21,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
             stops_list.push_back(std::make_shared<Tterminal>("Bus terminal - 3"));
         }
 
-        int stop_list_count(){ return stops_list.size(); }
-
-        int start_terminal_bus_count()
+        int startTerminalBusCount()
         {
             return stops_list[0]->counterBussesStop();
         }

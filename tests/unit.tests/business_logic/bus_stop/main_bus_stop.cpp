@@ -37,7 +37,7 @@ TEST_CASE("Bus_stops base count should be 4")
     // Arrange
     std::unique_ptr<Route> route_pointer = std::make_unique<Route>();
     // Act
-    int count = route_pointer->stop_list_count();
+    int count = route_pointer -> routeSize();
     // Assert
     REQUIRE(count == 4);
 }
@@ -54,7 +54,7 @@ TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
     car->assignRoute(route_1);
 
     // Act
-    int bus_count = route_1 -> start_terminal_bus_count();
+    int bus_count = route_1 -> startTerminalBusCount();
 
     // Assert
     REQUIRE(bus_count == 2);

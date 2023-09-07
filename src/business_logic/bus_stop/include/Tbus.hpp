@@ -14,7 +14,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         ~Tbus() = default;
 
     private:
-        void drawVehicle() override;
-        std::string name_checkVehicle() override;
+        void draw() override;
+        std::string nameCheck() override;
     };
 }
