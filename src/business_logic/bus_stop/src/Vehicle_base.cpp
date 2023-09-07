@@ -30,7 +30,8 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
             if(current_phrase == Ivehicle::Phrase::Normal)
             {
-                if(starting_terminal_pointer - (it + 1) < -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
+
+                if((starting_terminal_pointer - (it + 1)) <= -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
                 current_phrase = Ivehicle::Phrase::Reversed;
             }
             else
@@ -55,7 +56,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
             }
             else
             {
-                if(starting_terminal_pointer - (it + 1) < -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
+                if(starting_terminal_pointer - (it + 1) <= -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
                 current_phrase = Ivehicle::Phrase::Normal;
             }
 

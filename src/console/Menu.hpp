@@ -1,6 +1,5 @@
-#include "Tbus.hpp"
-#include "Tcar.hpp"
-#include "../../console/screen.hpp"
+#pragma once
+#include "header.hpp"
 
 
 namespace cpp_playground::pg_business_logic::bus_stop
