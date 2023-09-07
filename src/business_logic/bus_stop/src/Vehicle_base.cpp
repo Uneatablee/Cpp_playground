@@ -24,17 +24,27 @@ namespace cpp_playground::pg_business_logic::bus_stop
             if(current_phrase == Ivehicle::Phrase::Normal)
             {
 
-                if(current_route -> isBeyondFinal(current_position))
-                current_phrase = Ivehicle::Phrase::Reversed;
+                if(current_route -> isNextStopBeyondFinal(current_position))
+                {
+                    current_phrase = Ivehicle::Phrase::Reversed;
+                }
             }
             else
             {
-                if(current_route -> isBeyondStarting(current_position))
-                current_phrase = Ivehicle::Phrase::Normal;
+                if(current_route -> isNextStopBeyondStarting(current_position))
+                {
+                    current_phrase = Ivehicle::Phrase::Normal;
+                }
             }
 
-            if(current_phrase == Ivehicle::Phrase::Normal) phrase_multiplier = 1;
-            else phrase_multiplier = -1;
+            if(current_phrase == Ivehicle::Phrase::Normal)
+            {
+                phrase_multiplier = 1;
+            }
+            else
+            {
+                phrase_multiplier = -1;
+            }
 
             current_position = current_route -> nextStop(current_position, phrase_multiplier);
             break;
@@ -43,17 +53,28 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
             if(current_phrase == Ivehicle::Phrase::Normal)
             {
-                if(current_route -> isBeyondStarting(current_position))
-                current_phrase = Ivehicle::Phrase::Reversed;
+                if(current_route -> isNextStopBeyondStarting(current_position))
+                {
+                    current_phrase = Ivehicle::Phrase::Reversed;
+                }
             }
             else
             {
-                if(current_route -> isBeyondFinal(current_position))
-                current_phrase = Ivehicle::Phrase::Normal;
+                if(current_route -> isNextStopBeyondFinal(current_position))
+                {
+                    current_phrase = Ivehicle::Phrase::Normal;
+                }
+
             }
 
-            if(current_phrase == Ivehicle::Phrase::Normal) phrase_multiplier = 1;
-            else phrase_multiplier = -1;
+            if(current_phrase == Ivehicle::Phrase::Normal)
+            {
+                phrase_multiplier = 1;
+            }
+            else
+            {
+                phrase_multiplier = -1;
+            }
 
             current_position = current_route -> previousStop(current_position, phrase_multiplier);
             break;

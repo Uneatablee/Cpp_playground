@@ -35,38 +35,50 @@ namespace cpp_playground::pg_business_logic::bus_stop
             return stops_list.size();
         }
 
-        bool isBeyondFinal(std::shared_ptr<Ibus_stop> current_position)
+        bool isNextStopBeyondFinal(std::shared_ptr<Ibus_stop> current_position)
         {
             auto it = stops_list.begin();
-            for(it;it != stops_list.end(); it++)
+            for(;it != stops_list.end(); it++)
             {
                 if(*it == current_position) break;
             }
 
             auto starting_terminal_pointer = stops_list.begin();
 
-            if((starting_terminal_pointer - (it + 1)) <= -(static_cast<std::ptrdiff_t>(stops_list.size()))) return true;
-            else return false;
+            if((starting_terminal_pointer - (it + 1)) <= -(static_cast<std::ptrdiff_t>(stops_list.size())))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        bool isBeyondStarting(std::shared_ptr<Ibus_stop> current_position)
+        bool isNextStopBeyondStarting(std::shared_ptr<Ibus_stop> current_position)
         {
             auto it = stops_list.begin();
-            for(it;it != stops_list.end(); it++)
+            for(;it != stops_list.end(); it++)
             {
                 if(*it == current_position) break;
             }
 
             auto starting_terminal_pointer = stops_list.begin();
 
-            if(starting_terminal_pointer - (it - 1) > 0) return true;
-            else return false;
+            if(starting_terminal_pointer - (it - 1) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         std::shared_ptr<Ibus_stop> nextStop(std::shared_ptr<Ibus_stop> current_position,int multiplier)
         {
             auto it = stops_list.begin();
-            for(it;it != stops_list.end(); it++)
+            for(;it != stops_list.end(); it++)
             {
                 if(*it == current_position) break;
             }
@@ -78,7 +90,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         std::shared_ptr<Ibus_stop> previousStop(std::shared_ptr<Ibus_stop> current_position,int multiplier)
         {
             auto it = stops_list.begin();
-            for(it;it != stops_list.end(); it++)
+            for(;it != stops_list.end(); it++)
             {
                 if(*it == current_position) break;
             }
