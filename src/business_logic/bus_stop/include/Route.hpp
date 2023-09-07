@@ -8,10 +8,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
 {
     class Route final
     {
-
-    public:
-
+    private:
         std::vector<std::shared_ptr<Ibus_stop>> stops_list;
+    public:
 
         Route()
         {
@@ -31,9 +30,67 @@ namespace cpp_playground::pg_business_logic::bus_stop
             stops_list[0]->addVehicle(vehicle);
         }
 
-        std::vector<std::shared_ptr<Ibus_stop>>::iterator begin(){return stops_list.begin();}
-        std::vector<std::shared_ptr<Ibus_stop>>::iterator end(){return stops_list.end();}
-        size_t routeSize(){ return stops_list.size();}
+        int routeSize()
+        {
+            return stops_list.size();
+        }
+
+        bool isBeyondFinal(std::shared_ptr<Ibus_stop> current_position)
+        {
+            auto it = stops_list.begin();
+            for(it;it != stops_list.end(); it++)
+            {
+                if(*it == current_position) break;
+            }
+
+            auto starting_terminal_pointer = stops_list.begin();
+
+            if((starting_terminal_pointer - (it + 1)) <= -(static_cast<std::ptrdiff_t>(stops_list.size()))) return true;
+            else return false;
+        }
+
+        bool isBeyondStarting(std::shared_ptr<Ibus_stop> current_position)
+        {
+            auto it = stops_list.begin();
+            for(it;it != stops_list.end(); it++)
+            {
+                if(*it == current_position) break;
+            }
+
+            auto starting_terminal_pointer = stops_list.begin();
+
+            if(starting_terminal_pointer - (it - 1) > 0) return true;
+            else return false;
+        }
+
+        std::shared_ptr<Ibus_stop> nextStop(std::shared_ptr<Ibus_stop> current_position,int multiplier)
+        {
+            auto it = stops_list.begin();
+            for(it;it != stops_list.end(); it++)
+            {
+                if(*it == current_position) break;
+            }
+
+            it += multiplier;
+            return *it;
+        }
+
+        std::shared_ptr<Ibus_stop> previousStop(std::shared_ptr<Ibus_stop> current_position,int multiplier)
+        {
+            auto it = stops_list.begin();
+            for(it;it != stops_list.end(); it++)
+            {
+                if(*it == current_position) break;
+            }
+
+            it -= multiplier;
+            return *it;
+        }
+
+        std::shared_ptr<Ibus_stop> getTerminalAddress()
+        {
+            return stops_list[0];
+        }
 
 
 

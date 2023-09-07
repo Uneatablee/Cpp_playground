@@ -7,7 +7,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         this -> current_route = route;
         current_route -> vehicleCheckout(this);
 
-        current_position = current_route -> stops_list[0];
+        current_position = current_route -> getTerminalAddress();
     }
 
     void Vehicle_base::moveVehicle(Ivehicle::Movement direction)
@@ -15,13 +15,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
         if(current_position == nullptr)
         return;
 
-        auto it = current_route -> begin();
-        for(it;it != current_route -> end(); it++)
-        {
-            if(*it == current_position) break;
-        }
-
-        auto starting_terminal_pointer = current_route -> begin();
         int phrase_multiplier;
 
         switch(direction)
@@ -31,40 +24,38 @@ namespace cpp_playground::pg_business_logic::bus_stop
             if(current_phrase == Ivehicle::Phrase::Normal)
             {
 
-                if((starting_terminal_pointer - (it + 1)) <= -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
+                if(current_route -> isBeyondFinal(current_position))
                 current_phrase = Ivehicle::Phrase::Reversed;
             }
             else
             {
-                if(starting_terminal_pointer - (it - 1) > 0)
+                if(current_route -> isBeyondStarting(current_position))
                 current_phrase = Ivehicle::Phrase::Normal;
             }
 
             if(current_phrase == Ivehicle::Phrase::Normal) phrase_multiplier = 1;
             else phrase_multiplier = -1;
 
-            it += (1 * phrase_multiplier);
-            current_position = *it;
+            current_position = current_route -> nextStop(current_position, phrase_multiplier);
             break;
 
         case Vehicle_base::Movement::Backward:
 
             if(current_phrase == Ivehicle::Phrase::Normal)
             {
-                if(starting_terminal_pointer - (it - 1) > 0)
+                if(current_route -> isBeyondStarting(current_position))
                 current_phrase = Ivehicle::Phrase::Reversed;
             }
             else
             {
-                if(starting_terminal_pointer - (it + 1) <= -(static_cast<std::ptrdiff_t>(current_route -> routeSize())))
+                if(current_route -> isBeyondFinal(current_position))
                 current_phrase = Ivehicle::Phrase::Normal;
             }
 
             if(current_phrase == Ivehicle::Phrase::Normal) phrase_multiplier = 1;
             else phrase_multiplier = -1;
 
-            it -= (1 * phrase_multiplier);
-            current_position = *it;
+            current_position = current_route -> previousStop(current_position, phrase_multiplier);
             break;
         }
     }
