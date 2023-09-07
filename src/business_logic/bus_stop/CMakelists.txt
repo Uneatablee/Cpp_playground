@@ -1,4 +1,4 @@
 project(bus_stop_functions)
 
-add_library(bus_stop_functions src/Tbus.cpp src/Tstop.cpp src/Tcar.cpp src/Tterminal.cpp src/Vehicle_base.cpp src/Bus_stop_base.cpp)
+add_library(bus_stop_functions src/Tbus.cpp src/Tstop.cpp src/Tcar.cpp src/Tterminal.cpp src/Vehicle_base.cpp src/Bus_stop_base.cpp src/Route.cpp)
 target_include_directories(bus_stop_functions INTERFACE ./include)
