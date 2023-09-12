@@ -15,8 +15,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
     private:
 
         void draw() override;
-        int counterBussesStop() override;
-        void addVehicle(Ivehicle*) override;
     };
 
 }

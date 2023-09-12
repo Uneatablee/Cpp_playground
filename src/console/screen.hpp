@@ -30,7 +30,7 @@ public:
 
     void outputScreen()
     {
-        std::cout << screen_content;
+        std::cout << screen_content << std::flush;
     }
 
 };

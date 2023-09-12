@@ -1,9 +1,8 @@
 #pragma once
 #include "header.hpp"
 
+    using namespace cpp_playground::pg_business_logic::bus_stop;
 
-namespace cpp_playground::pg_business_logic::bus_stop
-{
     class Menu final
     {
 
@@ -14,6 +13,12 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     public:
 
+        Menu() = default;
+
+        void menuClear();
+        void screenRefresh();
+        void vehicleSection();
+        void RouteSection();
+        void exit();
 
     };
-}
