@@ -13,6 +13,5 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     private:
         void draw() override;
-        std::string nameCheck() override;
     };
 }

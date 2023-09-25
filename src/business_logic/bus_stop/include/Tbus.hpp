@@ -8,13 +8,10 @@ namespace cpp_playground::pg_business_logic::bus_stop
     public:
 
         Tbus(int a, std::string n) : Vehicle_base(a,n)
-        {
-
-        }
+        {}
         ~Tbus() = default;
 
     private:
         void draw() override;
-        std::string nameCheck() override;
     };
 }

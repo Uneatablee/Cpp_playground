@@ -22,6 +22,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void moveVehicle(Ivehicle::Movement) override;
         void assignRoute(std::shared_ptr<Route>) override;
         std::string showStop() override;
+        std::string nameCheck() override;
 
         int length;
         std::string name;
