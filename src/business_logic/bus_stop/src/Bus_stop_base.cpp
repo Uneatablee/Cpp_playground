@@ -9,7 +9,19 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     void Bus_stop_base::addVehicle(Ivehicle * vehicle)
     {
-        this->bus_list.push_back(vehicle);
+        this -> bus_list.push_back(vehicle);
+    }
+
+    void Bus_stop_base::deleteVehicle(Ivehicle * vehicle)
+    {
+        for(int i=0; i < static_cast<int>(bus_list.size()); i++)
+        {
+            if(bus_list[i] == vehicle)
+            {
+                bus_list.erase(bus_list.begin() + i);
+                break;
+            }
+        }
     }
 
     int Bus_stop_base::counterBussesStop()

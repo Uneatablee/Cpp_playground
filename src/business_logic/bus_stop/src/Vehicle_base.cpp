@@ -46,7 +46,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
                 phrase_multiplier = -1;
             }
 
+            current_position -> deleteVehicle(this);
             current_position = current_route -> nextStop(current_position, phrase_multiplier);
+            current_position -> addVehicle(this);
             break;
 
         case Vehicle_base::Movement::Backward:
@@ -76,7 +78,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
                 phrase_multiplier = -1;
             }
 
+            current_position -> deleteVehicle(this);
             current_position = current_route -> previousStop(current_position, phrase_multiplier);
+            current_position -> addVehicle(this);
             break;
         }
     }

@@ -54,7 +54,7 @@ TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
     car->assignRoute(route_1);
 
     // Act
-    int bus_count = route_1 -> startTerminalBusCount();
+    int bus_count = route_1 -> busCount(0);
 
     // Assert
     REQUIRE(bus_count == 2);
@@ -129,4 +129,41 @@ TEST_CASE("Vehicle can drive BACKWARD beyond terminal and will return")
     REQUIRE(position_1 == position_2);
     REQUIRE(position_3 == position_1);
     REQUIRE(position_4 == position_1);
+}
+
+TEST_CASE("When vehicle moves, it adds itself to the next bus stop list and erase form previous")
+{
+    //Arrange
+    std::shared_ptr<Route> route_1 = std::make_shared<Route>();
+
+    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3,"bus_1");
+    bus_1 -> assignRoute(route_1);
+
+    //Act
+    int busses_number_1 = route_1 -> busCount(0);
+    bus_1 -> moveVehicle(Ivehicle::Movement::Forward);
+
+    int busses_number_at_second_station = route_1 -> busCount(1);
+    int busses_number_at_first_station = route_1 -> busCount(0);
+
+    for(int i = 0; i < 3; i++)
+    {
+        bus_1 -> moveVehicle(Ivehicle::Movement::Forward);
+    }
+
+    int busses_number_at_third_station = route_1 -> busCount(2);
+    int station_0_number = route_1 -> busCount(0);
+    int station_1_number = route_1 -> busCount(1);
+    int station_3_number = route_1 -> busCount(3);
+
+    //Assert
+    REQUIRE(busses_number_1 == 1);
+    REQUIRE(busses_number_at_second_station == 1);
+    REQUIRE(busses_number_at_first_station == 0);
+
+    REQUIRE(busses_number_at_third_station == 1);
+    REQUIRE(station_0_number == 0);
+    REQUIRE(station_1_number == 0);
+    REQUIRE(station_3_number == 0);
+
 }

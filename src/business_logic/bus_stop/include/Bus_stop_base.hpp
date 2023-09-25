@@ -27,6 +27,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
         std::string getName() override;
         void addVehicle(Ivehicle *) override;
+        void deleteVehicle(Ivehicle *) override;
         int counterBussesStop() override;
 
     };

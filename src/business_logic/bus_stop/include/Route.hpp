@@ -12,15 +12,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
         std::vector<std::shared_ptr<Ibus_stop>> stops_list;
     public:
 
-        Route()
-        {
-            stops_list.push_back(std::make_shared<Tterminal>("Bus terminal - 0"));
-            stops_list.push_back(std::make_shared<Tstop>("Bus stop - 1"));
-            stops_list.push_back(std::make_shared<Tstop>("Bus stop - 2"));
-            stops_list.push_back(std::make_shared<Tterminal>("Bus terminal - 3"));
-        }
+        Route();
 
-        int startTerminalBusCount();
+        int busCount(int stop_number);
         void vehicleCheckout(Ivehicle* vehicle);
         int routeSize();
         bool isNextStopBeyondFinal(std::shared_ptr<Ibus_stop> current_position);
