@@ -1,8 +1,9 @@
 project(bus_stop_functions_business_logic_unit_test)
 
-add_executable(bus_stop_functions_business_logic_unit_test main_bus_stop.cpp)
+add_executable(bus_stop_functions_business_logic_unit_test main_bus_stop.cpp fake_drawable_implementation.cpp)
 
 target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
 
 
 target_link_libraries(bus_stop_functions_business_logic_unit_test PUBLIC bus_stop_functions)
+

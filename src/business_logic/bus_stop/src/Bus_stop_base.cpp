@@ -7,12 +7,12 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return bus_stop_name;
     }
 
-    void Bus_stop_base::addVehicle(Ivehicle * vehicle)
+    void Bus_stop_base::addVehicle(Ivehicle* vehicle)
     {
         this -> bus_list.push_back(vehicle);
     }
 
-    void Bus_stop_base::deleteVehicle(Ivehicle * vehicle)
+    void Bus_stop_base::deleteVehicle(Ivehicle* vehicle)
     {
         for(int i=0; i < static_cast<int>(bus_list.size()); i++)
         {

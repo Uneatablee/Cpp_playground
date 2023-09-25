@@ -3,14 +3,17 @@
 #include "Tbus.hpp"
 #include "Tcar.hpp"
 #include <memory>
+#include "fake_drawable_implementation.hpp"
 
 using namespace cpp_playground::pg_business_logic::bus_stop;
+
+class fake_drawable_implementation;
 
 TEST_CASE("Bus can drive")
 {
     // Arrange
     std::shared_ptr<Route> route_1 = std::make_shared<Route>();
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
 
     bus -> assignRoute(route_1);
 
@@ -47,8 +50,8 @@ TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
     // Arrange
     std::shared_ptr<Route> route_1 = std::make_shared<Route>();
 
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
-    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1");
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1",std::make_shared<fake_drawable_implementation>());
 
     bus->assignRoute(route_1);
     car->assignRoute(route_1);
@@ -65,8 +68,8 @@ TEST_CASE("Vehicle can drive FORWARD beyond terminal and will return")
     // Arrange
     std::shared_ptr<Route> route_1 = std::make_shared<Route>();
 
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
-    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1");
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1",std::make_shared<fake_drawable_implementation>());
 
     bus -> assignRoute(route_1);
     car -> assignRoute(route_1);
@@ -102,8 +105,8 @@ TEST_CASE("Vehicle can drive BACKWARD beyond terminal and will return")
     // Arrange
     std::shared_ptr<Route> route_1 = std::make_shared<Route>();
 
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1");
-    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1");
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1",std::make_shared<fake_drawable_implementation>());
 
     bus -> assignRoute(route_1);
     car -> assignRoute(route_1);
@@ -136,7 +139,7 @@ TEST_CASE("When vehicle moves, it adds itself to the next bus stop list and eras
     //Arrange
     std::shared_ptr<Route> route_1 = std::make_shared<Route>();
 
-    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3,"bus_1");
+    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3,"bus_1",std::make_shared<fake_drawable_implementation>());
     bus_1 -> assignRoute(route_1);
 
     //Act
@@ -165,5 +168,19 @@ TEST_CASE("When vehicle moves, it adds itself to the next bus stop list and eras
     REQUIRE(station_0_number == 0);
     REQUIRE(station_1_number == 0);
     REQUIRE(station_3_number == 0);
+
+}
+
+TEST_CASE("Is bus drawing itself")
+{
+    //Arrange
+    std::unique_ptr<Idrawable> bus_drawer = std::make_unique<Tbus>(3,"bus_1",std::make_shared<fake_drawable_implementation>());
+    auto expected_result = true;
+
+    //Act
+    auto result = bus_drawer -> draw();
+
+    //Assert
+    REQUIRE(result == expected_result);
 
 }

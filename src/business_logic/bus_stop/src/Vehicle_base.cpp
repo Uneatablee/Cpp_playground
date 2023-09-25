@@ -96,4 +96,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return name;
     }
 
+    bool Vehicle_base::draw()
+    {
+        return drawer -> draw();
+    }
+
 }
