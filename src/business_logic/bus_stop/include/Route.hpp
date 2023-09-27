@@ -16,7 +16,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
         int busCount(int stop_number);
         void vehicleCheckout(Ivehicle* vehicle);
-        int routeSize();
+        int getStopsCount();
         bool isNextStopBeyondFinal(std::shared_ptr<Ibus_stop> current_position);
         bool isNextStopBeyondStarting(std::shared_ptr<Ibus_stop> current_position);
         std::shared_ptr<Ibus_stop> nextStop(std::shared_ptr<Ibus_stop> current_position,int multiplier);

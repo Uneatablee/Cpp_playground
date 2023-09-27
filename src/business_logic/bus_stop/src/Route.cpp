@@ -12,7 +12,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     int Route::busCount(int stop_number)
     {
-        return stops_list[stop_number]->counterBussesStop();
+        return stops_list[stop_number]->getVehiclesCount();
     }
 
     void Route::vehicleCheckout(Ivehicle* vehicle)
@@ -20,7 +20,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         stops_list[0]->addVehicle(vehicle);
     }
 
-    int Route::routeSize()
+    int Route::getStopsCount()
     {
         return stops_list.size();
     }

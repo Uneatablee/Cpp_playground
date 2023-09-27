@@ -40,7 +40,7 @@ TEST_CASE("Bus_stops base count should be 4")
     // Arrange
     std::unique_ptr<Route> route_pointer = std::make_unique<Route>();
     // Act
-    int count = route_pointer -> routeSize();
+    int count = route_pointer -> getStopsCount();
     // Assert
     REQUIRE(count == 4);
 }

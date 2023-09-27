@@ -90,7 +90,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return current_position -> getName();
     }
 
-    std::string Vehicle_base::nameCheck()
+    std::string Vehicle_base::getName()
     {
         std::cout << std::endl << name << std::endl;
         return name;

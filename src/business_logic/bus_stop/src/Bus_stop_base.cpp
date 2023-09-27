@@ -24,7 +24,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         }
     }
 
-    int Bus_stop_base::counterBussesStop()
+    int Bus_stop_base::getVehiclesCount()
     {
         return this->bus_list.size();
     }
