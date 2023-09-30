@@ -98,7 +98,14 @@ namespace cpp_playground::pg_business_logic::bus_stop
 
     bool Vehicle_base::draw()
     {
-        return drawer -> draw();
+        if (drawer -> draw() == false)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

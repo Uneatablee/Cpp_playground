@@ -2,7 +2,8 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    void Tterminal::draw()
+    bool Tterminal::draw()
     {
+        return true;
     }
 }

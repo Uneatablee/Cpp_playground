@@ -12,7 +12,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         std::vector<std::shared_ptr<Ibus_stop>> stops_list;
     public:
 
-        Route();
+        Route(std::vector<std::shared_ptr<Ibus_stop>> list);
 
         int busCount(int stop_number);
         void vehicleCheckout(Ivehicle* vehicle);
