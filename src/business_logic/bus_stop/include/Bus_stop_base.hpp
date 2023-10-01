@@ -21,7 +21,6 @@ namespace cpp_playground::pg_business_logic::bus_stop
         Bus_stop_base(Bus_stop_base&& object) = default;
         Bus_stop_base& operator=(Bus_stop_base&& object) = default;
 
-
         std::vector<Ivehicle*> bus_list;
         std::string bus_stop_name;
         int coordinate_x;
