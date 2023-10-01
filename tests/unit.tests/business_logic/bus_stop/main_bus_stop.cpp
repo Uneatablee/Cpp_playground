@@ -223,15 +223,14 @@ TEST_CASE("Is bus drawing itself")
 
     Mock<Idrawable> mock;
     When(Method(mock,draw)).Return(true);
-    Idrawable &temp = mock.get();
+    Idrawable* temp = &mock.get();
 
-
-    std::unique_ptr<Idrawable> bus_drawer = std::make_unique<Tbus>(3,"bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Idrawable> bus_drawer = std::make_unique<Tbus>(3,"bus_1",std::shared_ptr<Idrawable>(std::move(temp)));
     auto expected_result = true;
 
 
     //Act
-    auto result = bus_drawer -> draw();
+    auto result = bus_drawer -> draw(2,"text");
 
     //Assert
     REQUIRE(result == expected_result);

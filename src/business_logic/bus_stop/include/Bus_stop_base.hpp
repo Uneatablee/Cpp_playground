@@ -32,6 +32,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void addVehicle(Ivehicle*) override;
         void deleteVehicle(Ivehicle*) override;
         int getVehiclesCount() override;
+        bool draw(int, std::string) override;
 
     };
 

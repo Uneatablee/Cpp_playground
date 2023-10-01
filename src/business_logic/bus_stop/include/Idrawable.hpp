@@ -18,7 +18,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         Idrawable(Idrawable&& object) = default;
         Idrawable& operator=(Idrawable && object) = default;
 
-        virtual bool draw() = 0;
+        virtual bool draw(int,std::string) = 0;
 
     };
 }

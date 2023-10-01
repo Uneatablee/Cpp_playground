@@ -12,5 +12,5 @@ public:
     fake_drawable_implementation() = default;
     virtual ~fake_drawable_implementation() = default;
 
-    bool draw() override;
+    bool draw(int, std::string) override;
 };

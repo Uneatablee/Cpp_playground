@@ -32,7 +32,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
         void assignRoute(std::shared_ptr<Route>) override;
         std::string showStop() override;
         std::string getName() override;
-        bool draw() override;
+        bool draw(int, std::string) override;
 
     };
 }

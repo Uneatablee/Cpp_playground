@@ -29,5 +29,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return this->bus_list.size();
     }
 
+    bool Bus_stop_base::draw(int length, std::string name)
+    {
+       return drawer -> draw(length,name);
+    }
 
 }
