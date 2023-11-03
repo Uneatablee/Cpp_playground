@@ -6,7 +6,6 @@ jobs:
   build_and_test:
     runs-on: macos-latest
     steps:
-      - name: code-checkout
         uses: actions/checkout@v3
       - name: build
       run: |
