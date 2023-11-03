@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Ivehicle.hpp"
-#include "Idrawable.hpp"
+#include "IVehicle.hpp"
 #include "IRoute.hpp"
 
 namespace cpp_playground::pg_business_logic::bus_stop
