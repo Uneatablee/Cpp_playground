@@ -1,6 +1,14 @@
 project(bus_stop_functions_business_logic_unit_test)
 
-add_executable(bus_stop_functions_business_logic_unit_test main_bus_stop.cpp)
+add_executable(bus_stop_functions_business_logic_unit_test
+    main_bus_stop.cpp
+    Tbus_tests/Tests/getName.cpp
+    Tbus_tests/Tests/moveVehicle.cpp
+    Tbus_tests/Utils/bus_stop_utils.cpp
+    Tbus_tests/Tests/assignRoute.cpp)
+
+
+target_include_directories(bus_stop_functions_business_logic_unit_test PRIVATE ../../../../lib/FakeIt/single_header/catch)
 
 target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
 

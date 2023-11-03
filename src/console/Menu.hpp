@@ -10,11 +10,12 @@ namespace cpp_playground::pg_business_logic::bus_stop
     private:
 
         std::vector<std::shared_ptr<Route>> routes_list;
-        std::unique_ptr<screen> main_screen = std::make_unique<screen>(' ');
 
     public:
 
+        std::unique_ptr<screen> main_screen = std::make_unique<screen>(' ');
 
+        Menu() = default;
 
 
     };
