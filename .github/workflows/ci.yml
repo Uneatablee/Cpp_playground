@@ -14,6 +14,8 @@ jobs:
           cd ./build
           cmake ../
           cmake --build .
+      - name: tests
+        run: |
           cd ./tests/unit.tests/business_logic/bus_stop
           ctest
 
