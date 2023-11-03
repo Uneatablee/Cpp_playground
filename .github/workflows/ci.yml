@@ -4,7 +4,7 @@ on:
     branches: [dev, main]
 jobs:
   build_and_test:
-    name: job_1
+    name: Build & test
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
