@@ -14,5 +14,7 @@ jobs:
           cd ./build
           cmake ../
           cmake --build .
+          cd ./tests/unit.tests/business_logic/bus_stop
+          ctest
 
 
