@@ -7,7 +7,4 @@ target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2
 
 target_link_libraries(bus_stop_functions_business_logic_unit_test PUBLIC bus_stop_functions)
 
-list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
-include(CTest)
-include(Catch)
 catch_discover_tests(bus_stop_functions_business_logic_unit_test)
