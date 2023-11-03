@@ -1,6 +1,6 @@
 name: ci
 on:
-  pull-request:
+  pull_request:
     branches: [dev, main]
 jobs:
   build_and_test:
