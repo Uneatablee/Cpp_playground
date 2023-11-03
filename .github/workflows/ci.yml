@@ -4,9 +4,10 @@ on:
     branches: [dev, main]
 jobs:
   build_and_test:
+    name: job_1
     runs-on: macos-latest
     steps:
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: build
         run: |
           mkdir build
