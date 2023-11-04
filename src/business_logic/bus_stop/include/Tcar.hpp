@@ -1,5 +1,6 @@
 #pragma once
 #include "Vehicle_base.hpp"
+#include <memory>
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
@@ -7,12 +8,10 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     public:
 
-        Tcar(int a, std::string n) : Vehicle_base(a,n)
+        Tcar(int a, std::string n, std::shared_ptr<Idrawable> drawing_component) : Vehicle_base(a,n,drawing_component)
         {}
         ~Tcar() = default;
 
     private:
-        void draw() override;
-        std::string nameCheck() override;
     };
 }

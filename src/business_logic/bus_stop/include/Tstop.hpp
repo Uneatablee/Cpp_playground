@@ -7,16 +7,10 @@ namespace cpp_playground::pg_business_logic::bus_stop
     {
     public:
 
-        Tstop(std::string stop_name) : Bus_stop_base(stop_name)
-        {std::cout << "Creating stop" << std::endl;}
+        Tstop(std::string stop_name, std::shared_ptr<Idrawable> drawing_component) : Bus_stop_base(stop_name, drawing_component)
+        {}
 
         ~Tstop() = default;
-
-    private:
-
-        void draw() override;
-        int counterBussesStop() override;
-        void addVehicle(Ivehicle*) override;
     };
 
 }
