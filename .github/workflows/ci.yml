@@ -1,0 +1,22 @@
+name: ci
+on:
+  pull_request:
+    branches: [dev, main]
+jobs:
+  build_and_test:
+    name: Build & test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: |
+          mkdir build
+          cd ./build
+          cmake ../
+          cmake --build .
+      - name: tests
+        run: |
+          cd ./build
+          ctest
+
+
