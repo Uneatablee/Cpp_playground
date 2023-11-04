@@ -126,7 +126,7 @@ TEST_CASE("Vehicle can drive BACKWARD beyond terminal and will return")
     std::string position_4 = bus -> showStop();
 
     //Assert
-    REQUIRE(position_1 != position_4);
+    REQUIRE(position_1 == position_4);
     REQUIRE(position_3 == position_1);
     REQUIRE(position_4 == position_1);
 }
