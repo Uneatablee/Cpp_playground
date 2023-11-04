@@ -12,4 +12,6 @@ add_subdirectory(src/business_logic/diagonal_throw)
 add_subdirectory(src/console)
 add_subdirectory(src/Qt)
 
+enable_testing()
+
 add_subdirectory(tests)

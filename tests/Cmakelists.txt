@@ -8,5 +8,9 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
+list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
+include(CTest)
+include(Catch)
+
 add_subdirectory(./unit.tests/business_logic/diagonal_throw)
 add_subdirectory(./unit.tests/business_logic/bus_stop)

@@ -8,3 +8,4 @@ target_include_directories(bus_stop_functions_business_logic_unit_test PRIVATE .
 target_link_libraries(bus_stop_functions_business_logic_unit_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(bus_stop_functions_business_logic_unit_test PUBLIC bus_stop_functions)
 
+catch_discover_tests(bus_stop_functions_business_logic_unit_test)
