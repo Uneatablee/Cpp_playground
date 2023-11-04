@@ -47,14 +47,6 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
-#vscode-counter
-out
-node_modules
-.vscode-test/
-.VSCodeCounter/
-*.vsix
-yarn.lock
-
 #custom ignores
 #=================================
 build
