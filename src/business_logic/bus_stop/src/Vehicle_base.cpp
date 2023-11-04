@@ -2,7 +2,7 @@
 
 namespace cpp_playground::pg_business_logic::bus_stop
 {
-    void Vehicle_base::assignRoute(std::shared_ptr<IRoute> route)
+    void Vehicle_base::assignRoute(std::shared_ptr<Route> route)
     {
         this -> current_route = route;
         current_route -> vehicleCheckout(this);
@@ -10,10 +10,10 @@ namespace cpp_playground::pg_business_logic::bus_stop
         current_position = current_route -> getTerminalAddress();
     }
 
-    bool Vehicle_base::moveVehicle(Ivehicle::Movement direction)
+    void Vehicle_base::moveVehicle(Ivehicle::Movement direction)
     {
         if(current_position == nullptr)
-        return false;
+        return;
 
         int phrase_multiplier;
 
@@ -46,9 +46,7 @@ namespace cpp_playground::pg_business_logic::bus_stop
                 phrase_multiplier = -1;
             }
 
-            current_route -> deleteVehicle(this, current_position);
             current_position = current_route -> nextStop(current_position, phrase_multiplier);
-            current_route -> addVehicle(this, current_position);
             break;
 
         case Vehicle_base::Movement::Backward:
@@ -78,29 +76,14 @@ namespace cpp_playground::pg_business_logic::bus_stop
                 phrase_multiplier = -1;
             }
 
-            current_route -> deleteVehicle(this, current_position);
             current_position = current_route -> previousStop(current_position, phrase_multiplier);
-            current_route -> addVehicle(this , current_position);
             break;
         }
-
-        return true;
     }
 
     std::string Vehicle_base::showStop()
     {
-        return current_position -> getName(); //Change into Route-Only dependency
-    }
-
-    std::string Vehicle_base::getName()
-    {
-        std::cout << std::endl << name << std::endl;
-        return name;
-    }
-
-    bool Vehicle_base::draw(int length, std::string name)
-    {
-       return drawer -> draw(length,name);
+        return current_position -> getName();
     }
 
 }
