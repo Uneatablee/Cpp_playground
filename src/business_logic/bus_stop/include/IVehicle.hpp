@@ -21,9 +21,9 @@ namespace cpp_playground::pg_business_logic::bus_stop
         Ivehicle(const Ivehicle&) = default;
         Ivehicle& operator=(const Ivehicle&) = default;
 
-        virtual void moveVehicle(Movement) = 0;
+        virtual bool moveVehicle(Movement) = 0;
         virtual std::string getName() = 0;
-        virtual void assignRoute(std::shared_ptr<Route>) = 0;
+        virtual void assignRoute(std::shared_ptr<IRoute>) = 0;
         virtual std::string showStop() = 0;
     };
 }

@@ -89,5 +89,13 @@ namespace cpp_playground::pg_business_logic::bus_stop
         return stops_list[0];
     }
 
+    void Route::addVehicle(Ivehicle* vehicle_address, std::shared_ptr<Ibus_stop> stop_address)
+    {
+        stop_address -> addVehicle(vehicle_address);
+    }
 
+    void Route::deleteVehicle(Ivehicle* vehicle_address, std::shared_ptr<Ibus_stop> stop_address)
+    {
+        stop_address -> deleteVehicle(vehicle_address);
+    }
 }

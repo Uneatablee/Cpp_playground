@@ -3,27 +3,34 @@
 #include "Tbus.hpp"
 #include "Tcar.hpp"
 #include <memory>
-#include "fake_drawable_implementation.hpp"
 #include <vector>
 #include "fakeit.hpp"
+#include "Idrawable.hpp"
 
 using namespace cpp_playground::pg_business_logic::bus_stop;
+using namespace fakeit;
+
 
 class fake_drawable_implementation;
 
 TEST_CASE("Bus can drive")
 {
+
+    Mock<Idrawable> mock;
+    When(Method(mock,draw)).Return(true);
+    Idrawable* temp = &mock.get();
     // Arrange
+
 
     std::vector<std::shared_ptr<Ibus_stop>> stop_list;
 
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::make_shared<fake_drawable_implementation>()));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::shared_ptr<Idrawable>(temp)));
 
     std::shared_ptr<Route> route_1 = std::make_shared<Route>(stop_list);
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::shared_ptr<Idrawable>(temp));
 
     bus -> assignRoute(route_1);
 
@@ -47,13 +54,16 @@ TEST_CASE("Bus can drive")
 
 TEST_CASE("Bus_stops base count should be 4")
 {
+    Mock<Idrawable> mock;
+    When(Method(mock,draw)).Return(true);
+    Idrawable* temp = &mock.get();
     // Arrange
     std::vector<std::shared_ptr<Ibus_stop>> stop_list;
 
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::make_shared<fake_drawable_implementation>()));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::shared_ptr<Idrawable>(temp)));
 
     std::unique_ptr<Route> route_pointer = std::make_unique<Route>(stop_list);
     // Act
@@ -64,18 +74,21 @@ TEST_CASE("Bus_stops base count should be 4")
 
 TEST_CASE("Newly created vehicle should appear at the bus terminal number 0")
 {
+    Mock<Idrawable> mock;
+    When(Method(mock,draw)).Return(true);
+    Idrawable* temp = &mock.get();
     // Arrange
     std::vector<std::shared_ptr<Ibus_stop>> stop_list;
 
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::make_shared<fake_drawable_implementation>()));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::shared_ptr<Idrawable>(temp)));
 
     std::shared_ptr<Route> route_1 = std::make_shared<Route>(stop_list);
 
-    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::make_shared<fake_drawable_implementation>());
-    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> bus = std::make_unique<Tbus>(3, "bus_1",std::shared_ptr<Idrawable>(temp));
+    std::unique_ptr<Ivehicle> car = std::make_unique<Tcar>(2, "car_1",std::shared_ptr<Idrawable>(temp));
 
     bus->assignRoute(route_1);
     car->assignRoute(route_1);
@@ -174,17 +187,20 @@ TEST_CASE("Vehicle can drive BACKWARD beyond terminal and will return")
 
 TEST_CASE("When vehicle moves, it adds itself to the next bus stop list and erase form previous")
 {
+    Mock<Idrawable> mock;
+    When(Method(mock,draw)).Return(true);
+    Idrawable* temp = &mock.get();
     //Arrange
     std::vector<std::shared_ptr<Ibus_stop>> stop_list;
 
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::make_shared<fake_drawable_implementation>()));
-    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::make_shared<fake_drawable_implementation>()));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 0",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 1",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tstop>("Stop - 2",std::shared_ptr<Idrawable>(temp)));
+    stop_list.push_back(std::make_shared<Tterminal>("Terminal - 3",std::shared_ptr<Idrawable>(temp)));
 
     std::shared_ptr<Route> route_1 = std::make_shared<Route>(stop_list);
 
-    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3,"bus_1",std::make_shared<fake_drawable_implementation>());
+    std::unique_ptr<Ivehicle> bus_1 = std::make_unique<Tbus>(3,"bus_1",std::shared_ptr<Idrawable>(temp));
     bus_1 -> assignRoute(route_1);
 
     //Act
@@ -218,13 +234,10 @@ TEST_CASE("When vehicle moves, it adds itself to the next bus stop list and eras
 
 TEST_CASE("Is bus drawing itself")
 {
-    //Arrange
-    using namespace fakeit;
-
     Mock<Idrawable> mock;
     When(Method(mock,draw)).Return(true);
     Idrawable* temp = &mock.get();
-
+    //Arrange
     std::unique_ptr<Idrawable> bus_drawer = std::make_unique<Tbus>(3,"bus_1",std::shared_ptr<Idrawable>(std::move(temp)));
     auto expected_result = true;
 

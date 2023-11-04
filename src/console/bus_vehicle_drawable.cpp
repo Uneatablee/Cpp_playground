@@ -13,7 +13,6 @@ public:
 
 bool bus_vehicle_drawable::draw(int length, std::string name)
 {
-    int a = length;
-    if(a == 0)
+
     return true;
 }
